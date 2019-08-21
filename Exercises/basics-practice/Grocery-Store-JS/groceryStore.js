@@ -6,10 +6,10 @@ const shopper = {
         if(this.isMarried){
             return true
         } else {
-            return false
+            return "hurry up and get married!"
         }
     },
     groceryCart: ["oats", "bananas", "peanut butter", "coffee", "chicken", "rice"]
 };
-
-console.log(shopper.groceryCart[3]);
+shopper.isMarried = false;
+console.log(shopper.babyAdvertisement());
