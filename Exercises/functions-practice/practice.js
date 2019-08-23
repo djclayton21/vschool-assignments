@@ -53,26 +53,35 @@ function mostCommonLetter(inString) {
     //read string and count letters
     const count = {
         letters:[inString[0]],
-        freq:[1],
+        freq:[0],
     }
-    for(let i = 1; i < inString.length; i++){
-
+    for (let i = 0; i < inString.length; i++) {
         for(let j = 0; j < count.letters.length; j++){
-
             if(inString[i] === count.letters[j]){
-                count.freq[j]++
+                count.freq[j] += 1;
                 break
-            }
-            //  else {
-            //     console.log("Letter " + inString[i] + " not found");
-            //     count.letters[j + 1] = inString[i];
-            //     count.freq[j + 1] = 1;
-            //     break
-            // }              
+            } else if (j === (count.letters.length - 1)){
+                count.letters.push(inString[i]);
+                count.freq.push(1);
+                break
+            } 
         }
     }
-    return count
+    //find max and index
+    let maxCount = [0];
+    let maxCountIndex = [0]; 
+    for (let i = 0; i < count.freq.length; i++){
+        if (count.freq[i] > maxCount[0]){
+            maxCount[0] = count.freq[i];
+            maxCountIndex[0] = i;
+        } else {
+            continue
+        }
+    }
+    return [maxCount, count.letters[maxCountIndex]]
 }
-console.log(mostCommonLetter("hhhhhhhHHHH"));
+let result = mostCommonLetter("I've gnot a lovely bnunch of connconutns!");
+console.log(result);
+
 
 
