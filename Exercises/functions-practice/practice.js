@@ -87,11 +87,14 @@
 //quadratic
 
 // function myQuad(a, b, c){
-//     let x1 = (-1 * b + Math.sqrt(Math.pow(b, 2) - 4 * a * c))/(2 * a);
-//     let x2 = (-1 * b - Math.sqrt(Math.pow(b, 2) - 4 * a * c))/(2 * a);
+//     let descriminant = Math.pow(b, 2) - 4 * a * c;
+//     let x1 = (-b + Math.sqrt(descriminant)) / (2 * a)
+//     let x2 = (-b - Math.sqrt(descriminant)) / (2 * a)
 //     let answer = [x1, x2];
-
 //     return answer 
 // }
 
-// console.log(myQuad(5, 3, 3))
+// console.log(myQuad(1, 5, 3))
+// let b = 2;
+// let x1 = -b;
+// console.log(x1);
