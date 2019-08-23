@@ -49,39 +49,49 @@
 // }
 // console.log(fibonacciSum(20));
 
-function mostCommonLetter(inString) {
-    //read string and count letters
-    const count = {
-        letters:[inString[0]],
-        freq:[0],
-    }
-    for (let i = 0; i < inString.length; i++) {
-        for(let j = 0; j < count.letters.length; j++){
-            if(inString[i] === count.letters[j]){
-                count.freq[j] += 1;
-                break
-            } else if (j === (count.letters.length - 1)){
-                count.letters.push(inString[i]);
-                count.freq.push(1);
-                break
-            } 
-        }
-    }
-    //find max and index
-    let maxCount = [0];
-    let maxCountIndex = [0]; 
-    for (let i = 0; i < count.freq.length; i++){
-        if (count.freq[i] > maxCount[0]){
-            maxCount[0] = count.freq[i];
-            maxCountIndex[0] = i;
-        } else {
-            continue
-        }
-    }
-    return [maxCount, count.letters[maxCountIndex]]
-}
-let result = mostCommonLetter("I've gnot a lovely bnunch of connconutns!");
-console.log(result);
+// function mostCommonLetter(inString) {
+//     //read string and count letters
+//     const count = {
+//         letters:[inString[0]],
+//         freq:[0],
+//     }
+//     for (let i = 0; i < inString.length; i++) {
+//         for(let j = 0; j < count.letters.length; j++){
+//             if(inString[i] === count.letters[j]){
+//                 count.freq[j] += 1;
+//                 break
+//             } else if (j === (count.letters.length - 1)){
+//                 count.letters.push(inString[i]);
+//                 count.freq.push(1);
+//                 break
+//             } 
+//         }
+//     }
+//     //find max and index
+//     let maxCount = [0];
+//     let maxCountIndex = [0]; 
+//     for (let i = 0; i < count.freq.length; i++){
+//         if (count.freq[i] > maxCount[0]){
+//             maxCount[0] = count.freq[i];
+//             maxCountIndex[0] = i;
+//         } else {
+//             continue
+//         }
+//     }
+//     return [maxCount, count.letters[maxCountIndex]]
+// }
+// let result = mostCommonLetter("Unless you use reaaaaaallylongwords themostcommon is spaaaaace");
+// console.log(result);
 
 
+//quadratic
 
+// function myQuad(a, b, c){
+//     let x1 = (-1 * b + Math.sqrt(Math.pow(b, 2) - 4 * a * c))/(2 * a);
+//     let x2 = (-1 * b - Math.sqrt(Math.pow(b, 2) - 4 * a * c))/(2 * a);
+//     let answer = [x1, x2];
+
+//     return answer 
+// }
+
+// console.log(myQuad(5, 3, 3))

@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box; 
+    font-size: 0px;
+}
+
+div {
+    border: 5px solid #ffffff;
+    height: 125px;
+}
+body {
+    margin: 100px 100px;
+}
+.light-pink {
+    display: block;
+    background-color: #F5C6D6;
+    width: 100%;
+}
+
+.hot-pink {
+    display: inline-block;
+    background-color: #EE2E84;
+    width: 25%;
+}
+
+.light-blue {
+    display: inline-block;
+    background-color: #85CFD8;
+    width: 50%;
+}
+
+.lime-green {
+    display: inline-block;
+    background-color: #8DC63F;
+    width: 75%;
+}
+
+.orange {
+    display: inline-block;
+    background-color: #E76E34;
+    width: 25%;
+}
