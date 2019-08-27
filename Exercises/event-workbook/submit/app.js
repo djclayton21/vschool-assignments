@@ -3,11 +3,15 @@
 // remember to pass "e" into the callback function
 
 let button = document.getElementById("submit-me")
+let nameField = document.getElementById("name")
+let ageField = document.getElementById("age")
 
 button.addEventListener("submit", function(e){
     e.preventDefault()
     const firstName = document.getElementById("name").value
     const age = document.getElementById("age").value
 
-    alert(firstName ", "age)
+    alert(firstName + ", " + age)
 })
+
+nameField.name = "user_name";
