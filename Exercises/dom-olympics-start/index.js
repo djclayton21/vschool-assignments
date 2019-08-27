@@ -33,7 +33,6 @@ for (let i = 0; i < messages.children.length; i++){
     messageContent = messageContent.replace(/farmer/gi, "hapiness grower")
 
     messages.children[i].textContent = messageContent
-    console.log(messageContent);
 }
 
 const clear = document.getElementById("clear-button");
@@ -48,7 +47,9 @@ clear.addEventListener("click", function(){
 
 const dropdown = document.getElementById("theme-drop-down")
 
-dropdown.addEventListener("change", function(){
+dropdown.addEventListener("change", themeChange)
+
+function themeChange(){
     let theme = dropdown.value;
     if(theme === "theme-one"){
         let leftMessages = document.getElementsByClassName("left")
@@ -80,4 +81,28 @@ dropdown.addEventListener("change", function(){
             rightMessages[i].style.backgroundColor = "lime"
         }
     }
-})
+}
+
+//gold
+
+const button = document.message.querySelector("button")
+button.addEventListener("click", newMessage)
+
+function newMessage(e){
+    e.preventDefault()
+    let newMessageElement = document.createElement("div")
+    newMessageElement.textContent = e.target.parentNode.input.value
+    if (messages.lastElementChild.className === "message right"){
+        newMessageElement.className = "message left"
+    } else {
+        newMessageElement.className = "message right"
+    }
+    if (messages.childElementCount >= 8){
+        while (messages.childElementCount >= 8){
+            messages.removeChild(messages.firstChild)
+        }
+    }
+    messages.appendChild(newMessageElement)
+    themeChange()
+    e.target.parentNode.input.value = ""
+}
