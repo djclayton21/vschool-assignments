@@ -1,6 +1,4 @@
-* {
 
-}
 .flag-container {
     display: inline-block;
 }
@@ -85,7 +83,7 @@
 
 .switzerland-1 {
     background-color: #ffffff;
-    position: relative;
+    position: absolute;
     width: 60%;
     height: 20%;
     top: 40%;
@@ -161,3 +159,224 @@
     left: 0;
     bottom: 0;
 }
+.tonga {
+    background-color: #C10000;
+}
+.tonga-corner {
+    background-color: #ffffff;
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    top: 0;
+    left: 0;
+}
+.tonga-corner-1 {
+    background-color: #C10000;
+    position: absolute;
+    width: 100px;
+    height: 33px;
+    margin:auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.tonga-corner-2 {
+    background-color: #C10000;
+    position: absolute;
+    width: 33px;
+    height: 100px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.japan-1 {
+    background-color: #BC002D;
+    position: absolute;
+    border-radius: 50%;
+    height: 175px;
+    width: 175px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.greece-corner {
+    background-color: #ffffff;
+    position: absolute;
+    width: 33.3%;
+    height: 55.5%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.greece-corner-1 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    left: 0;
+    top: 0;
+}
+.greece-corner-2 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    right: 0;
+    top: 0;
+}
+.greece-corner-3 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    left: 0;
+    bottom: 0;
+}
+.greece-corner-4 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    right: 0;
+    bottom: 0;
+}
+.greece-1 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 100%;
+    height: 11.1%;
+    left: 0;
+    top: 0;
+}
+.greece-2 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 100%;
+    height: 11.1%;
+    left: 0;
+    top: 22.2%;
+}
+.greece-3 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 100%;
+    height: 11.1%;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+}
+.greece-4 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 100%;
+    height: 11.1%;
+    left: 0;
+    bottom: 22.2%;
+}
+.greece-5 {
+    background-color: #0D5EAF;
+    position: absolute;
+    width: 100%;
+    height: 11.1%;
+    left: 0;
+    bottom: 0;
+}
+
+.niger-1 {
+    background-color: #E05206;
+    position: absolute;
+    width: 100%;
+    height: 33.3%;
+    top: 0;
+}
+.niger-2 {
+    background-color: #0DB02B;
+    position: absolute;
+    width: 100%;
+    height: 33.3%;
+    bottom: 0;
+}
+.niger-3 {
+    background-color: #E05206;
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.maldives {
+    background-color: #D21034;
+}
+.maldives-box {
+    background-color: #007E3A;
+    position: absolute;
+    height: 50%;
+    width: 70%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.maldives-circle-1 {
+    background-color: #007E3A;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+
+}
+.maldives-circle-2 {
+    background-color: #ffffff;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: 45%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+.belize {
+    background-color: #003F87;
+}
+.belize-1 {
+    background-color: #CE1126;
+}
+.belize-2 {
+    background-color: #CE1126;
+}
+.belize-circle-1 {
+    background-color: #ffffff;
+}
+.belize-circle-2 {
+    background-color: #289400;
+}
+.belize-crest-1 {
+    background-color: #9DD7FF;
+}
+.belize-crest-2 {
+    background-color: #ffffff;
+}
+.belize-crest-3 {
+    background-color: #FFD83C;
+}
+
+
+
+
+
