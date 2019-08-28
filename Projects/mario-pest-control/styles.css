@@ -1,0 +1,30 @@
+@font-face {
+    font-family: marioFont;
+    src: url(SuperMario256.ttf);
+}
+* {
+    font-family: marioFont, Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.baddie-container {
+    text-align: center;
+    overflow: auto;
+}
+.baddie-img {
+    max-width: 10em;
+}
+
+.footer-container {
+    position: fixed;
+    bottom:0;
+    text-align: center;
+    display: inline-block;
+}
