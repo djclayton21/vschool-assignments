@@ -1,0 +1,52 @@
+html {
+    box-sizing: border-box;
+}
+.header {
+    text-align: center;
+}
+.form-container {
+    max-width: 700px;
+    min-width: 200px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    border-bottom: none;
+}
+.basics {
+    justify-content: space-evenly
+}
+.gender {
+    justify-content: space-around;
+}
+.destination {
+    justify-content: flex-start;
+}
+.diet {
+    justify-content: flex-start;
+    align-content: flex-start;
+    border-bottom: 2px solid black;
+}
+.diet label {
+    position: relative;
+    padding-left: 1em;
+}
+.dropdown {
+    position: relative;
+    height: auto;
+    width: 10em;
+    left:1em;
+}
+
