@@ -8,71 +8,62 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class= "wrapper">
-    <div class= "content-container">
+    <div class= "wrapper">
         <h1>Mario Pest Control</h1>
-        <div class= "form-container">
+        <div class= "content-container">
             <form name= "form">
-                <div class= "baddies-container">
-                    <div class= "baddie">
-                        <img>
-                        <div class= "baddie-details">
-                            <div class= "price-container">
-                                <span>Goombas:</span>
-                                <span>5</span>
-                                <span>coins</span>
-                            </div>
-                            <div class= "input-container">
-                                <label>Caught:<input name= "goombas" type= "number" value= 0 min= "0"></label>
-                            </div>
+                <div class= "baddie">
+                    <img src= "pics/goomba.png" class= "baddie-img">
+                    <div class= "baddie-details">
+                        <div class= "price-container">
+                            <span>Goombas:</span><span>5 coins</span>
+                        </div>
+                        <div class= "input-container">
+                            <label>Caught:<input name= "goombas" type= "number" step= 1 value= 0 min= "0"></label>
                         </div>
                     </div>
-                    <div class= "baddie">
-                        <img>
-                        <div class= "baddie-details">
-                            <div class= "price-container">
-                                <span>Bob-oms:</span>
-                                <span>7</span>
-                                <span>coins</span>
-                            </div>
-                            <div class= "input-container">
-                                <label>Caught:<input name= "bobombs" type= "number" value= 0 min= "0"></label>
-                            </div>
+                </div>
+                <div class= "baddie">
+                    <img src= "pics/bobomb.png" class= "baddie-img">
+                    <div class= "baddie-details">
+                        <div class= "price-container">
+                            <span>Bob-oms:</span>
+                            <span>7 coins</span>
+                        </div>
+                        <div class= "input-container">
+                            <label>Caught:<input name= "bobombs" type= "number" value= 0 min= "0"></label>
                         </div>
                     </div>
-                    <div class= "baddie">
-                        <img>
-                        <div class= "baddie-details">
-                            <div class= "price-container">
-                                <span>Cheep-cheeps:</span>
-                                <span>11</span>
-                                <span>coins</span>
-                            </div>
-                            <div class= "input-container">
-                                <label>Caught:<input name= "cheeps" type= "number" value= 0 min= "0"></label>
-                            </div>
+                </div>
+                <div class= "baddie">
+                    <img src= "pics/cheep.png"  class= "baddie-img">
+                    <div class= "baddie-details">
+                        <div class= "price-container">
+                            <span>Cheep-cheeps:</span><span>11 coins</span>
+                        </div>
+                        <div class= "input-container">
+                            <label>Caught:<input name= "cheeps" type= "number" value= 0 min= "0"></label>
                         </div>
                     </div>
                 </div>
                 <button name= "submit" type= "submit">Submit</button>
             </form>
+            <div class= "results-container">
+                <span>Total Earned:</span>
+                <span id= "result">0</span>
+                <span>Coins</span>
+            </div>
         </div>
-        <div class= "results-container">
-            <span>Total Earned:</span>
-            <span id= "result">0</span>
-            <span>Coins</span>
+        <div class = "footer">
+            <div>k00p@5l@y3r@aol.com</div>
+            <a href= "https://mario.nintendo.com/">mario.nintendo.com</a>
+            <div class= "address">
+                <p>Baddie Stopming Contract Agency</p>
+                <p>6174 Toadstool Parkway</p>
+                <p>Toad Town, Mushroom Kingdom</p>
+            </div>
         </div>
     </div>
-    <div class = "footer">
-        <div>k00p@5l@y3r@aol.com</div>
-        <a href= "https://www.goombastomp.com/">goombastomp.com</a>
-        <div class= "address">
-            <p>Baddie Stopming Contract Agency</p>
-            <p>6174 Toadstool Parkway</p>
-            <p>Toad Town, Mushroom Kingdom</p>
-        </div>
-    </div>
-</div>
     <script src= "app.js"></script>
 </body>
 </html>
