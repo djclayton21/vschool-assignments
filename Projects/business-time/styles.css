@@ -71,7 +71,6 @@ body {
     display: flex;
     justify-content: space-around;
     background:#e17d17;
-    bottom: 0;
 }
 
 /* navbar */
@@ -107,6 +106,12 @@ body {
 /* content */
 .main {
     background: #ffecca;
+}
+.welcome {
+    text-align: center;
+}
+.main > * {
+    margin: 5px;
 }
 
 /* tablet */
