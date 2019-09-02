@@ -2,43 +2,104 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-.page-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+html, body {
+    margin: 0;
+    padding: 0;
 }
-/* .header {
 
+/* layout */
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.main-container {
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    flex: 1 0 auto;
+    overflow-y: auto;
+    margin: 0 5px;
+}
+.header {
+    grid-row: 1/2;
+    margin: 5px 5px 0 5px;
 }
 .footer {
-
-} */
-.page-container > * { 
-    border: 2px solid black;
-    flex: 1 0 auto;
-}
-.main-container {
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: auto 1fr;
-    min-height: 100vh;
-}
-.main-container > * {
-    border: 2px solid black;
-}
-.sidebar-right {
-    grid-column: 3/4;
+    grid-row: 3/4;
+    margin: 0 5px 5px 5px;
 }
 .nav-bar {
-    grid-column: 1/2;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: repeat(5,1fr)
 }
-main {
-    grid-column: 2/3;
+.link-bar {
+    grid-row: 3/4;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    bottom: 0;
+
+}
+.main {
     grid-row: 2/3;
 }
-.links {
-    grid-column: 1/4;
-    grid-row: 1/2;
+
+/* general */
+a {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background: url(pics/Freckles.jpg)
+}
+
+/* header */
+.header {
+    text-align: center;
+    background:#e17d17;
+    flex: 0;
+}
+
+/* footer */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    background:#e17d17;
+    bottom: 0;
+}
+
+/* navbar */
+.nav-bar a {
+    font-size: small;
+    padding: 1px;
+    flex: 0;
+}
+.nav-bar a:hover {
+    background: #e1621d;
+}
+.nav-bar a:active {
+    background: #e1621d;
+}
+
+/* link bar */
+.link-bar a {
+    font-size: small;
+    padding: 1px;
+}
+.link-bar a:hover {
+    background: #e1621d;
+}
+.link-bar a:active {
+    background: #e1621d;
+}
+/* content */
+.main {
+    background: #ffecca;
 }
 
