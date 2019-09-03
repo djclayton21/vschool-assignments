@@ -59,7 +59,11 @@ a {
 body {
     background: url(pics/Freckles.jpg)
 }
-
+details a {
+    display: block;
+    text-align: left;
+    margin-left: 2.5em;
+}
 
 /* header */
 .header {
@@ -114,6 +118,11 @@ body {
 .main {
     background: #ffecca;
     margin: 5px;
+}
+.letter {
+    font-size: large;
+    font-weight: bold;
+    font-family: cursive;
 }
 .welcome {
     text-align: center;
