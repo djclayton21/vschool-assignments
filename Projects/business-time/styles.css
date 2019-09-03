@@ -63,6 +63,7 @@ details a {
     display: block;
     text-align: left;
     margin-left: 2.5em;
+    padding: .2em 0;
 }
 
 /* header */
@@ -136,6 +137,9 @@ details a {
 }
 .return-top {
     display: block;
+}
+li {
+    padding: .5em 0;
 }
 /* support */
 .support > * {
