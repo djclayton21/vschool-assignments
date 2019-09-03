@@ -128,7 +128,67 @@ body {
 .return-top {
     display: block;
 }
-
+/* support */
+.support > * {
+    text-align: center;
+}
+/* shop */
+.shop {
+    height: 100%;
+    padding: .5em 0;
+}
+.shop-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border: 2px solid #e1af93;
+    border-bottom: none;
+}
+.shop-item:last-child {
+    border-bottom: 2px solid #e1af93;
+}
+.shop-details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    font-size: small;
+}
+.shop-details > div {
+    padding: 0 .5em;
+}
+.shop-details div {
+    text-align: Left;
+}
+.shop img {
+    max-width: 100%;
+}
+/* People */
+.people {
+    height: 100%;
+    padding: .5em 0;
+}
+.people-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border: 2px solid #e1af93;
+    border-bottom: none;
+}
+.people-item:last-child {
+    border-bottom: 2px solid #e1af93;
+}
+.people-details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.people-details > div {
+    padding: .5em .5em;
+}
+.people-details div {
+    text-align: Left;
+}
+.people img {
+    max-width: 100%;
+}
 /* tablet */
 
 @media only screen and (min-width: 700px){
@@ -156,6 +216,9 @@ body {
     }
     .main > * {
         padding: 50px;
+    }
+    .shop-details {
+        font-size: inherit;
     }
 
 }
