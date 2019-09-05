@@ -37,7 +37,7 @@ function rng(chance = 100){//return random number 0 to chance, default 100
 
 //movement///////////////////////////////////
 //move forward
-function walk(){
+function forward(){
     console.clear()
     //check path?
     //encounter
@@ -122,7 +122,7 @@ while (!gameover) {
     choice = readline.keyIn( '>>>', {limit: ['w','s','i','q']})
     //forward
     if (choice === 'w') {
-        walk()
+        forward()
     } 
     //turn left?
     //turn right?
