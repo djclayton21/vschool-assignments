@@ -41,8 +41,8 @@ function walk(){
     console.clear()
     //check path?
     //encounter
-    if (rng(battleChance) >= 1) {
-        console.log('no encounter')
+    if (rng(battleChance) === 0) {
+        console.log('An enemy approaches!')
     }
     //update location?
     console.log('You move forward.')
