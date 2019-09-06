@@ -6,10 +6,13 @@ const player = {
     health: 1000,
     maxHealth: 1000,
     items: [{itemName: 'sleeping bag'},{itemName:'a weird rock'}]
+    //level?
+    //experience?
 }
 let gameover = false
+let battle = false
 //////difficulty settings
-    const battleChance = 4 /// chance of an encounter, 1 in x
+const battleChance = 4 /// chance of an encounter, 1 in x
 
 //functions////////////////////////////////////////////////////////////////
 
@@ -22,9 +25,10 @@ function quit(){
 }
 
 function gameOver(){
+    battle = false
+    gameover = true
     console.clear()
     console.log('Game Over :(')
-    gameover = true
 }
 
 function resume(){
@@ -40,12 +44,12 @@ function rng(chance = 100){//return random number 0 to chance, default 100
 function forward(){
     console.clear()
     //check path?
+    console.log('You move forward.')
     //encounter
     if (rng(battleChance) === 0) {
-        console.log('An enemy approaches!')
+        encounter()
     }
     //update location?
-    console.log('You move forward.')
 
 }
 
@@ -81,25 +85,66 @@ function status(){
     }
 }
 //enemy encounter///////////////////////////
-    //random enemy
-    //wait
-        //attack
-            //damage given
-            //enemy attack
-            //update status
-        //run
-            //chance to run
-            //enemy attack
-            //update status
-        //inventory?
-            //use item?
-        //round result
-            //more fite
-            //win
-                //item drop
-                //experience
-            //lose
-                //gameover
+function encounter(){
+    newEnemy()
+    battle = true;
+    while (battle){
+        battleRound()
+        console.log('Round over')
+        //check status
+        //results
+            //ded
+            //items/xp
+    }
+}
+//random enemy
+function newEnemy(){
+    console.clear()
+    console.log('generate enemy')
+}
+//round
+function battleRound(){
+    console.log('Choose what you do')
+    console.log('[a] Attack [r] Run [i] Inventory [q] quit')//talk?
+    let choice = 0
+    choice = readline.keyIn('>>>', {limit: ['a','r','i','q']})
+    if (choice === 'q'){
+        quit()
+    } else if (choice === 'a'){
+        attack()
+    } else if (choice === 'r'){
+        run()
+    } else if (choice === 'i'){
+        inventory()
+    }
+}
+//attack
+function attack(){
+    console.clear()
+    console.log('** attack function')
+    //damage given
+    //update enemy status
+}
+//enemy attack
+    //damage given
+    //update player status
+//run
+function run(){
+    console.clear()
+    console.log('*** you try to run')
+    //chance to run
+    //enemy attack
+    //update status
+}
+//inventory?
+    //use item?
+//round result
+    //more fite
+    //win
+        //item drop
+        //experience
+    //lose
+        //gameover
 
 //game///////////////////////////////////////////////////////////////////
 
