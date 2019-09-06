@@ -1,0 +1,37 @@
+{
+    "appetizers": [
+        {
+            "name": "jalepeno poppers",
+            "ingredients": ["jalepenos", "cream cheese", "spices"],
+            "description": "Don't burn your mouth!"
+        },
+        {
+            "name":"chicken wings",
+            "ingredients": ["chicken wings", "breading", "wing sauce"],
+            "description": "Delicious parts of chicken"
+        }
+    ],
+    "cold-sandwiches": [
+        {
+            "name":"BLT",
+            "ingredients": ["bacon", "lettuce", "tomato"],
+            "description": "classic"
+        },{
+            "name":"Weird Vegan Option",
+            "ingredients": ["veggies", "bread", "nothing good"],
+            "description": "Order this if you hate yourself or your body hates you"
+        }
+    ],
+    "hot-sandwiches": [
+        {
+            "name":"hot dog",
+            "ingredients": ["meat","more different meat","????"],
+            "description": "Delicious tube meat"
+        },
+        {
+            "name":"meatball",
+            "ingredients": ["mystery meatballs", "red sauce", "baguette"],
+            "description": "Delicous balls of meat"
+        }
+    ]
+}
