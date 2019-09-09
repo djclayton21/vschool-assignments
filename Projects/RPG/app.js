@@ -1,22 +1,10 @@
 const readline = require('readline-sync')
-//TODO//////////////
-//graphics!
-    //screen
-        //text info
-        //status
-        //options
-    //monster pictures
-//map
-    //update ending
-//more monsters
-//boss
-
 
 //////settings/////////////////////
     const battleChance = 3 /// chance of an encounter, 1 in x
 
     //battle balance, default to 10
-    const enemyDmgFactor = 15; ///increases max de
+    const enemyDmgFactor = 15; ///increases max def
     const enemyDefFactor = 15; //increases max attack
     const playerDmgFactor = 15;
     const playerDefFactor = 15;
@@ -102,7 +90,34 @@ const enemies = [
         baseAttack: 5,
         baseDefense: 5,
         description: "You step on a slime. Its not very threatening, but it won't let go of your boot. ",
-        drops: [{item: rock, chance: 50},{item: minPotion, chance: 10}, {item: copperKey, chance: 20 * keyFactor}]
+        drops: [{item: rock, chance: 50},{item: minPotion, chance: 10}, {item: copperKey, chance: 25 * keyFactor}]
+    },
+    {
+        name: "Swarm of Mosquitos",
+        baseLevel: 1,
+        baseHealth: 50,
+        baseAttack: 5,
+        baseDefense: 5,
+        description: "A cloud of huge insects envelopes you, intent on sucking your blood.",
+        drops: [{item: rock, chance: 50},{item: minPotion, chance: 10}, {item: copperKey, chance: 25 * keyFactor}]
+    },
+    {
+        name: "R.O.U.S",
+        baseLevel: 2,
+        baseHealth: 150,
+        baseAttack: 15,
+        baseDefense: 5,
+        description: "A large rat-like creature jumps out of a tree. You didn't believe they existed, but here we are.",
+        drops: [{item: rock, chance: 50},{item: minPotion, chance: 20}, {item: copperKey, chance: 50 * keyFactor}, {item: silverKey, chance: 10 * keyFactor}]
+    },
+    {
+        name: "Seagull",
+        baseLevel: 2,
+        baseHealth: 150,
+        baseAttack: 5,
+        baseDefense: 15,
+        description: "An angry seagull swoops down, trying to steal your lunch. There isn't even an ocean nearby... ",
+        drops: [{item: rock, chance: 50},{item: minPotion, chance: 20}, {item: copperKey, chance: 50 * keyFactor}, {item: silverKey, chance: 10 * keyFactor}]
     },
     {
         name: "Goblin",
@@ -110,8 +125,8 @@ const enemies = [
         baseHealth: 250,
         baseAttack: 20,
         baseDefense: 10,
-        description: "A goblin was lying in wait. He looks annoying. ",
-        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 20}, {item: maxPotion, chance: 10}, {item: silverKey, chance: 20 * keyFactor}]
+        description: "A goblin was lying in wait. He looks like a hyperactive toddler with sharp teeth. ",
+        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 25}, {item: maxPotion, chance: 10}, {item: silverKey, chance: 25 * keyFactor}]
     },
     {
         name: "Kobold",
@@ -120,17 +135,35 @@ const enemies = [
         baseAttack: 10,
         baseDefense: 20,
         description: "A kobold attacks with a howl. He's fluffy and rather cute, but seems tough. ",
-        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 20}, {item: maxPotion, chance: 10}, {item: silverKey, chance: 20 * keyFactor}]
+        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 25}, {item: maxPotion, chance: 10}, {item: silverKey, chance: 25 * keyFactor}]
     },
     {
         name: "Orc",
         baseLevel: 5,
         baseHealth: 450,
-        baseAttack: 30,
+        baseAttack: 25,
         baseDefense: 30,
         description: "An orc charges out of nowhere. He's terrifying, and smells faintly of bacon",
-        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 100}, {item: maxPotion, chance: 50}, {item: goldenKey, chance: 20 * keyFactor}]
-    }   
+        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 100}, {item: maxPotion, chance: 50}, {item: silverKey, chance: 50 * keyFactor}, {item: goldenKey, chance: 25 * keyFactor}]
+    },
+    {
+        name: "Hobgoblin",
+        baseLevel: 5,
+        baseHealth: 450,
+        baseAttack: 30,
+        baseDefense: 25,
+        description: "A huge goblin is blocking the path. It looks like there is no way to avoid him.",
+        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 100}, {item: maxPotion, chance: 50}, {item: silverKey, chance: 50 * keyFactor}, {item: goldenKey, chance: 25 * keyFactor}]
+    },
+    {
+        name: "Golden Dragon",
+        baseLevel: 20,
+        baseHealth: 1950,
+        baseAttack: 100,
+        baseDefense: 100,
+        description: "Wow, thats a big dragon.",
+        drops: [{item: rock, chance: 50}, {item: minPotion, chance: 100}, {item: maxPotion, chance: 100}, {item: copperKey, chance: 100 * keyFactor}, {item: silverKey, chance: 100 * keyFactor}, {item: goldenKey, chance: 100 * keyFactor}]
+    }    
 ]
 
 ////Text//////
@@ -247,7 +280,7 @@ function parse(str){
     while (arr.length) {
         for(let i = 0; i < result.length; i++){
             if (result[i].length <= 55){
-                result[i]+= (" " + arr.shift())
+                result[i]+= (arr.shift() + " ")
             } else if (!result[i + 1]){
                 result.push("")
             }
@@ -293,7 +326,7 @@ function editStatusRight(arr){
 function editScreen(arr) {
     screenText = [...blankScreen]
     for (let i = 0; i < arr.length; i++) {
-        screenText[i + 3] = screenText[i + 3].slice(0, 4)
+        screenText[i + 3] = screenText[i + 3].slice(0, 5)
         screenText[i + 3] += arr[i];
         
         for (let j = screenText[i + 3].length; j < 74; j++){
@@ -320,7 +353,7 @@ function forward(){
 
 //inventory//////////////////////////////////
 function inventory(){
-    let newScreenText = [" Inventory:"]
+    let newScreenText = ["Inventory:"]
     //items
     for (let i = 0; i < player.items.length; i++){
         newScreenText.push(...parse(`[${i}] ${player.items[i].name}(${player.items[i].quantity})`))
@@ -387,6 +420,7 @@ function itemUse(item){
     newStatusText.push(`${player.health}/${player.maxHealth} HP   ${player.attack} Atk   ${player.defense} Def`)
     editStatus(newStatusText)
     printAll()
+    readline.keyInPause()
     for (let i = 0; i < player.items.length; i++){
         if (player.items[i].quantity <= 0){
             player.items.splice(i, 1)
@@ -395,11 +429,11 @@ function itemUse(item){
 }
 //check status////////////////
 function status(){
-    let newScreenText =[` ${player.name} Lvl: ${player.level}`]
-    newScreenText.push([` HP: ${player.health}/${player.maxHealth}`])
-    newScreenText.push([` XP: ${player.experience}/${player.levelUpXp}`])
-    newScreenText.push([` Attack: ${player.attack}`])
-    newScreenText.push([` Defense: ${player.defense}`])
+    let newScreenText =[`${player.name} Lvl: ${player.level}`]
+    newScreenText.push([`HP: ${player.health}/${player.maxHealth}`])
+    newScreenText.push([`XP: ${player.experience}/${player.levelUpXp}`])
+    newScreenText.push([`Attack: ${player.attack}`])
+    newScreenText.push([`Defense: ${player.defense}`])
     newScreenText.push(...parse("Description: You haven't come across anything reflective yet, so you don't actually know what you look like. You assume that you're very attractive."))
     let newMenuText = [`[x] Exit`]
     editScreen(newScreenText)
@@ -529,7 +563,7 @@ Enemy.prototype.experience = function () {
 }
 function battleRound(enemy){
 
-    let newScreenText = [`You eye the ${enemy.name}, and consider your next move.`]
+    let newScreenText = parse(`You face off with the ${enemy.name}, and consider your next move.`)
     editScreen(newScreenText)    
     let newMenuText = ['[a] Attack     [r] Run     [i] Inventory     [q] quit game ']
     editMenu(newMenuText)
