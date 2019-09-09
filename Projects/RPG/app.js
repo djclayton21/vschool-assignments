@@ -136,7 +136,20 @@ const enemies = [
     }   
 ]
 
-
+////Text//////
+const blankStatus = [
+    '***************************************************************************',
+    '*                                                                         *',
+    '*                                                                         *',
+    '*                                                                         *',
+    '*                                                                         *',
+    '***************************************************************************',
+]
+const blankMenu =[
+    '***************************************************************************',
+    '*                                                                         *',
+    '***************************************************************************',
+]
 //functions////////////////////////////////////////////////////////////////
 
 //utility///////////////////////////////////
@@ -193,6 +206,36 @@ function checkVictory(){
         gameOver()
     }
 }
+//text display//////////////////////////
+function printAll(){
+    const all = screenText.concat(statusText).concat(menuText)
+    for (let i = 0; i < all.length; i++){
+        console.log(all[i])
+    }
+}
+function editMenu(arr){
+    for (let i = 0; i < arr.length; i++) {
+        menuText[i + 1] = menuText[i + 1].slice(0, 3)
+        menuText[i + 1] += arr[i];
+        
+        for (let j = menuText[i+1].length; j < 74; j++){
+            menuText[i+1] += ' ';
+        }
+        menuText[i+1]+= '*'
+    }
+}
+function editStatus(arr){
+    for (let i = 0; i < arr.length; i++) {
+        statusText[i + 2] = statusText[i + 2].slice(0, 3)
+        statusText[i + 2] += arr[i];
+        
+        for (let j = statusText[i+2].length; j < 74; j++){
+            statusText[i+2] += ' ';
+        }
+        statusText[i+2]+= '*'
+    }
+}
+
 //movement///////////////////////////////////
 //move forward
 function forward(){
@@ -215,7 +258,9 @@ function inventory(){
         screenText = `[${i}] ${player.items[i].name} (${player.items[i].quantity})`
         console.log(screenText)
     }
-    menuText = '[#]Inspect Item [x] Exit '
+    let newMenuText = ['      [#] Inspect Item                                       [x] Exit']
+    menuText = blankMenu
+    editMenu(newMenuText)
     console.log(menuText)
     let choice = readline.keyIn('>>>', {limit: ['x','$<0-9>']})
     if (choice === 'x') {
@@ -243,7 +288,9 @@ function itemInfo(choice){
     } else {
         screenText = `Item: ${player.items[choice].name}(${player.items[choice].quantity}) Description: ${player.items[choice].description} `
         console.log(screenText)
-        menuText = `[u] Use Item [x] Exit`
+        let newMenuText = [`        [u] Use Item                               [x] Exit`]
+        menuText = blankMenu
+        editMenu(newMenuText)
         console.log(menuText)
         use = readline.keyIn(`>>>`, {limit: ['u','x']})
         if (use === 'u') {
@@ -265,6 +312,11 @@ function itemUse(item){
         screenText = `You use one ${item.name}.`
         console.log(screenText)
     }
+    statusText = blankStatus
+    let newStatusText = []
+    newStatusText.push(`${player.name}    Level ${player.level}`)
+    newStatusText.push(`${player.health}/${player.maxHealth} HP    ${player.attack} Atk    ${player.defense} Def`)
+    statusText = editStatus(newStatusText)
     for (let i = 0; i < player.items.length; i++){
         if (player.items[i].quantity <= 0){
             player.items.splice(i, 1)
@@ -278,7 +330,10 @@ function status(){
     console.log(`XP: ${player.experience}/${player.levelUpXp}`)
     console.log(`Attack: ${player.attack}`)
     console.log(`Defense: ${player.defense}`)
-    console.log('[x] Exit')
+    let newMenuText = [`[x] Exit`]
+    menuText = blankMenu
+    editMenu(newMenuText)
+    console.log(menuText)
     const choice = readline.keyIn('>>>', {limit: ['x']})
     if (choice === 'x') {
     }
@@ -293,13 +348,11 @@ function encounter(){
     screenText = enemy.description
     console.log(screenText)
     while (battle){
-        statusText = `${player.name} Level ${player.level}`
-        console.log(statusText)
-        statusText = `${player.health}/${player.maxHealth} HP ${player.attack} Atk ${player.defense} Def`
-        console.log(statusText)
-        statusText = `${enemy.name} Level ${enemy.level}`
-        console.log(statusText)
-        statusText = `${enemy.health}/${enemy.maxHealth} HP ${enemy.attack} Atk ${enemy.defense} Def`
+        statusText = blankStatus
+        let newStatusText = []
+        newStatusText.push(`${player.name}    Level ${player.level}                        ${enemy.name}    Level ${enemy.level}`)
+        newStatusText.push(`${player.health}/${player.maxHealth} HP    ${player.attack} Atk    ${player.defense} Def        ${enemy.health}/${enemy.maxHealth} HP    ${enemy.attack} Atk    ${enemy.defense} Def`)
+        editStatus(newStatusText)
         console.log(statusText)
         battleRound(enemy)
         if (battle){
@@ -322,6 +375,13 @@ function battleResolve(enemy) {
     screenText = `You gained ${xp} experience points!`
     console.log(screenText)
     readline.keyInPause()
+    statusText = blankStatus
+    let newStatusText = []
+    newStatusText.push(`${player.name}    Level ${player.level}`)
+    newStatusText.push(`${player.health}/${player.maxHealth} HP    ${player.attack} Atk    ${player.defense} Def`)
+    statusText = editStatus(newStatusText)
+    console.log(statusText)
+
     const drops = [];
     for (let i = 0; i < enemy.drops.length; i++) {
         let isDropped = false
@@ -385,7 +445,9 @@ Enemy.prototype.experience = function () {
     return xp
 }
 function battleRound(enemy){
-    menuText = '[a] Attack [r] Run [i] Inventory [q] quit game '
+    let newMenuText = ['[a]Attack          [r]Run          [i]Inventory          [q]quit game ']
+    menuText = blankMenu
+    editMenu(newMenuText)
     console.log(menuText)
     let choice = 0
     choice = readline.keyIn('>>>', {limit: ['a','r','i','q']})
@@ -463,7 +525,9 @@ while (!gameover) {
     console.clear()
     screenText = "Little has changed. You contemplate your next move."
     console.log(screenText)
-    menuText = '[w] Move Forward [s] Status [i] Inventory [q] quit'
+    let newMenuText =['[w] Move Forward        [s] Status       [i] Inventory       [q] quit']
+    menuText = blankMenu
+    editMenu(newMenuText)
     console.log(menuText)
     let choice = 0
     choice = readline.keyIn( '>>>', {limit: ['w','s','i','q']})
