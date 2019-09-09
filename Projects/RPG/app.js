@@ -1,13 +1,13 @@
 const readline = require('readline-sync')
 
 //////settings/////////////////////
-    const battleChance = 3 /// chance of an encounter, 1 in x
+    const battleChance = 2 /// chance of an encounter, 1 in x
 
     //battle balance, default to 10
-    const enemyDmgFactor = 15; ///increases max def
-    const enemyDefFactor = 15; //increases max attack
-    const playerDmgFactor = 15;
-    const playerDefFactor = 15;
+    const enemyDmgFactor = 20; ///increases max def
+    const enemyDefFactor = 20; //increases max attack
+    const playerDmgFactor = 20;
+    const playerDefFactor = 20;
 
     const keyFactor = 1; //increase chance of keys dropping
     const levelUpGrowthFactor = 1;
