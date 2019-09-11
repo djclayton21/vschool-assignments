@@ -14,30 +14,29 @@ axios.get("https://api.vschool.io/Dan/todo/")
 })
 .catch(err => console.log(err))
 
-//put data on site
+//create new todo
 function createTodo(todo) {
-    console.dir(todo)
     todoContainer = document.createElement("div")
     todoContainer.className = "todo-container"
-    todoContainer.id = `container-${todo._id}`
-    if (todo.completed){
-        todoContainer.classList.toggle("todo-completed")
-    }
-    checkbox(todo, todoContainer)
+    todoContainer.id = `${todo._id}`
+    addCheckbox(todo, todoContainer)
     if (todo.imgUrl || todo.price || todo.description){
         filledTodo(todo, todoContainer)
     } else {
         titleOnly(todo, todoContainer)
     }
+    addDelete(todoContainer)
     // addButtons()
     return todoContainer
 }
 //completed checkbox
 
-function checkbox(item, container){
+function addCheckbox(item, container){
     const checkbox = document.createElement("input")
     checkbox.type = "checkbox";
-    checkbox.addEventListener("change", completeToggle)
+    checkbox.addEventListener("change", function(e){
+        completeToggle(e, item)
+    })
     if (item.completed) {
         checkbox.checked = true
     }
@@ -46,7 +45,20 @@ function checkbox(item, container){
 function titleOnly(item, container) {
     const title = document.createElement("span")
     title.textContent = item.title
+    if (item.completed){
+        title.className = "todo-completed"
+    }
     container.appendChild(title)
+}
+//delete button
+function addDelete(container){
+    const deleteButton = document.createElement("button")
+    deleteButton.addEventListener("click", function() {
+        deleteTodo(container.id)
+    })
+    deleteButton.textContent = "Delete"
+    deleteButton.className = "delete-button"
+    container.appendChild(deleteButton)
 }
 
 function filledTodo(item, container){
@@ -58,8 +70,6 @@ function filledTodo(item, container){
     title.textContent = item.title
     if (item.completed){
         title.className = "todo-completed"
-    } else {
-        title.className = "todo-pending"
     }
     summary.appendChild(title)
     content.appendChild(summary)
@@ -109,7 +119,6 @@ function filledTodo(item, container){
 //POST new todos
 const newPostBtn = document.getElementById("new-post");
 const postDialog = document.getElementById("post-dialog")
-console.dir(postDialog)
 document.post.addEventListener("submit", newPost)
 
 newPostBtn.addEventListener("click", postPopUp)
@@ -132,33 +141,56 @@ function newPost(e){
     if (document.post.description.value){
         newPostObj.description = document.post.description.value
     }
-
+    console.log(newPostObj)
     axios.post("https://api.vschool.io/Dan/todo/", newPostObj)
         .then(response => {
             const newPostConfirm = response.data
-            console.dir(newPostConfirm)
             const newTodo = createTodo(newPostConfirm)
             listContainer.appendChild(newTodo)
         })
         .catch(error => console.log(error))
+    e.target.parentElement.open = false
 }
 //PUT complete or incomplete
-function completeToggle(e){
+function completeToggle(e, item){
     const isCompletedObj = {}
-    if(e.target.parentElement.classList.contains("todo-completed")){
+    if(item.completed){
         isCompletedObj.completed = false 
     } else {
         isCompletedObj.completed = true
     }
+    console.log(isCompletedObj)
     axios.put(`https://api.vschool.io/Dan/todo/${e.target.parentElement.id}`, isCompletedObj)
     .then(response => {
-        updateCompleted = response.data
-        updateCurrent(updateCompleted)
+        const updated = response.data
+        console.log(updated)
+        const updatedTodo = createTodo(updated)
+        updateCurrent(updatedTodo, e.target.parentElement.id)
     })
     .catch(error => console.log(error))
 }
 
-function updateCurrent(update){
-    console.log(update)
+function updateCurrent(update,id){
+    //remove old parts
+    
+    const elementToUpdate = document.getElementById(`${id}`)
+    while (elementToUpdate.children.length){
+        elementToUpdate.removeChild(elementToUpdate.firstChild)
+    }
+    //add new parts
+    while (update.children.length){
+        let oldPart = update.removeChild(update.firstChild)
+        elementToUpdate.appendChild(oldPart)
+    }
 }
 //DELETE old todos
+function deleteTodo(id) {
+    const toDelete = document.getElementById(id)
+    axios.delete(`https://api.vschool.io/Dan/todo/${id}`)
+        .then(response => {
+            console.log(response)
+            listContainer.removeChild(toDelete)
+        })
+        .catch(error => console.log(error))
+    
+}
