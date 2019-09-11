@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <div id="new-container"></div>
-        <div id="controls-container"></div>
-        <div id="list-container"></div>
+        <div id="options-container">
+            <button class="new-post" id= "new-post">New Post</button>
+        </div>
+        <div id="list-container">
+        </div>
+        <dialog id= "post-dialog" >
+            <form name="post" class="new-post" id="new-post" method="dialog">
+                <input name="title" type="text" class="new-post-title" placeholder="title" required>
+                <input name="img" type="url" class="new-post-img" placeholder="image url">
+                <input name="price" type="text" class="new-post-price" placeholder="price">
+                <input name="description" type="text" class="new-post-description" placeholder="description">
+                <button class="new-post-submit">Submit</button>
+            </form>
+        </dialog>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="app.js"></script>
 </body>

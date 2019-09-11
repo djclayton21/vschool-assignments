@@ -8,3 +8,37 @@ html, body {
 body {
     height: 100vh;
 }
+.todo-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.todo-img {
+    height: 10em;
+    width: 10em;
+}
+.todo-right {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+details {
+    display: inline;
+    transition: .5s linear;
+    overflow: hidden;
+}
+details:not([open]){
+    height: 1.5em;
+}
+details[open]{
+    height: 11.5em;
+}
+.todo-completed {
+    text-decoration: line-through;
+}
+.todo-container > * {
+    display: inline;
+}
+/* new post */
+.new-post {
+    height: 50px;
+    width: 100px;
+}
