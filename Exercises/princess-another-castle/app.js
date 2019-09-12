@@ -5,7 +5,7 @@ class Player {
         this.totalCoins = totalCoins;
         this.status = status;
         this.hasStar = hasStar;
-        this.gameActive = true
+        this.gameActive = true;
     }
     setName(namePicked) {
         if (namePicked === "Mario"){
@@ -27,6 +27,7 @@ class Player {
                 this.gameActive = false
                 break;
             default:
+                console.log("something broke")
         }
     }
     gotPowerup(){
@@ -67,18 +68,14 @@ function whatHappens(player) {
         player.addCoin()
     }
     player.print()
+    if (!player.gameActive){
+        clearInterval(intervalID)
+    }
 }
 
 const intervalID = setInterval(whatHappens, 1000, newPlayer)
 
-const checkID = setInterval(endGame, 1000, newPlayer)
 
-function endGame(player) {
-    if (!player.gameActive) {
-        clearInterval(intervalID)
-        clearInterval(checkID)
-    }
-}
 
 
 
