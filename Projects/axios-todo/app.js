@@ -25,6 +25,7 @@ function createTodo(todo) {
     } else {
         titleOnly(todo, todoContainer)
     }
+    addEditButton(todoContainer)
     addDelete(todoContainer)
     // addButtons()
     return todoContainer
@@ -44,6 +45,7 @@ function addCheckbox(item, container){
 }
 function titleOnly(item, container) {
     const title = document.createElement("span")
+    title.id = `${item._id}-title`
     title.textContent = item.title
     if (item.completed){
         title.className = "todo-completed"
@@ -67,6 +69,7 @@ function filledTodo(item, container){
     //title/dropdown
     const summary = document.createElement("summary")
     const title = document.createElement("span")
+    title.id = `${item._id}-title`
     title.textContent = item.title
     if (item.completed){
         title.className = "todo-completed"
@@ -82,6 +85,7 @@ function filledTodo(item, container){
     //picture
     if (item.imgUrl){    
         const todoImg = document.createElement("img")
+        todoImg.id = `${item._id}-img`
         todoImg.src = item.imgUrl
         todoImg.alt = "to-do image"
         todoImg.className = "todo-img"
@@ -95,6 +99,7 @@ function filledTodo(item, container){
     //price
     if (item.price){
         const todoPrice = document.createElement("div")
+        todoPrice.id = `${item._id}-price`
         todoPrice.textContent = `$${item.price}`
         todoPrice.className = "todo-price"
         todoRight.appendChild(todoPrice)
@@ -102,13 +107,11 @@ function filledTodo(item, container){
     //desription
     if (item.description){
         const todoDescription = document.createElement("div")
+        todoDescription.id = `${item._id}-description`
         todoDescription.textContent = item.description
         todoDescription.className = "todo-description"
         todoRight.appendChild(todoDescription)
     }
-    //create buttons
-
-
     //put everything in container
     if (item.price || item.description){
         infoContainer.appendChild(todoRight)
@@ -119,13 +122,11 @@ function filledTodo(item, container){
 //POST new todos
 const newPostBtn = document.getElementById("new-post");
 const postDialog = document.getElementById("post-dialog")
-document.post.addEventListener("submit", newPost)
-
-newPostBtn.addEventListener("click", postPopUp)
-
+newPostBtn.addEventListener("click", postPopUp )
 function postPopUp(){
     postDialog.open = true
 }
+document.post.addEventListener("submit", newPost)
 
 function newPost(e){
     e.preventDefault()
@@ -170,10 +171,11 @@ function completeToggle(e, item){
     .catch(error => console.log(error))
 }
 
-function updateCurrent(update,id){
+function updateCurrent(update, id){
     //remove old parts
-    
     const elementToUpdate = document.getElementById(`${id}`)
+    console.dir(update)
+    console.dir(elementToUpdate)
     while (elementToUpdate.children.length){
         elementToUpdate.removeChild(elementToUpdate.firstChild)
     }
@@ -193,4 +195,70 @@ function deleteTodo(id) {
         })
         .catch(error => console.log(error))
     
+}
+
+//EDIT todos//////////////////
+function addEditButton(container){
+    const editButton = document.createElement("button")
+    editButton.textContent = "Edit"
+    editButton.className = "edit-button"
+    editButton.addEventListener("click", editPopUp)
+    container.appendChild(editButton)
+}
+
+function editPopUp(event){
+    //id of current todo
+    const currentTodo = event.target.parentElement
+    const currentID = currentTodo.id
+    document.edit.id = `${currentID}-form`
+    //get components
+    const currentTitle = document.getElementById(`${currentID}-title`)
+    const currentPrice = document.getElementById(`${currentID}-price`)
+    const currentImg = document.getElementById(`${currentID}-img`)
+    const currentDescription = document.getElementById(`${currentID}-description`)
+    //fill form
+    if (currentTitle){
+        document.edit.title.value = currentTitle.textContent
+    }
+    if (currentPrice){
+        let price = currentPrice.textContent.slice(1, currentPrice.textContent.length)
+        document.edit.price.value = parseFloat(price)
+    }
+    if (currentImg){
+        document.edit.img.value = currentImg.src
+    }
+    if (currentDescription){
+        document.edit.description.value = currentDescription.textContent
+    }
+    const editDialog = document.getElementById("edit-dialog")
+    editDialog.open = true
+    
+}
+
+document.edit.addEventListener("submit", editTodo)
+
+
+function editTodo(event){
+    event.preventDefault()
+    //edit object
+    const newEditObj = {
+        title: document.edit.title.value
+    }
+
+    newEditObj.imgUrl = document.edit.img.value
+    newEditObj.price = document.edit.price.value
+    newEditObj.description = document.edit.description.value
+
+    console.log(newEditObj)
+    //send
+    const editId = document.edit.id.split("-")[0]
+    axios.put(`https://api.vschool.io/Dan/todo/${editId}`, newEditObj)
+        .then(response => {
+        const updated = response.data
+        const updatedTodo = createTodo(updated)
+        updateCurrent(updatedTodo, editId)
+        
+        })
+        .catch(error => console.log(error))
+    event.target.parentElement.open = false
 }
