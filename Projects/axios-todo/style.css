@@ -8,6 +8,13 @@ html, body {
 body {
     height: 100vh;
 }
+
+/*************** layout *****************/
+.list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .todo-details {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -35,10 +42,55 @@ details[open]{
     text-decoration: line-through;
 }
 .todo-container > * {
-    display: inline;
+    display: inline-block;
+    border: 2px solid black;
+    margin: 2px;
+    
 }
-/* new post */
-.new-post {
-    height: 50px;
-    width: 100px;
+.todo-container > span {
+    padding-left:16px;
 }
+.todo-container > input {
+    margin-top:7px;
+}
+.todo-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+}
+
+.todo-container {
+    max-width: 500px;
+    margin: auto;
+}
+.delete-button, .edit-button{
+    height: 24px;
+}
+dialog {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 24px;
+    max-width: 90%;
+    min-width: 75%;
+    min-height: 200px;
+}
+dialog form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+dialog input {
+    width: 100%;
+    margin: 5px auto;
+}
+dialog button {
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.new-post-description {
+    min-height: 100px;
+}
+

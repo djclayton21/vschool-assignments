@@ -19,6 +19,7 @@ function createTodo(todo) {
     todoContainer = document.createElement("div")
     todoContainer.className = "todo-container"
     todoContainer.id = `${todo._id}`
+
     addCheckbox(todo, todoContainer)
     if (todo.imgUrl || todo.price || todo.description){
         filledTodo(todo, todoContainer)
@@ -125,6 +126,7 @@ const postDialog = document.getElementById("post-dialog")
 newPostBtn.addEventListener("click", postPopUp )
 function postPopUp(){
     postDialog.open = true
+    postDialog.title.value = ""
 }
 document.post.addEventListener("submit", newPost)
 
