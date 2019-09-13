@@ -22,14 +22,32 @@ div > div{
 .empty-container {
 	display: none;
 }
-.header-container {
+.background-image-wrapper {
 	display: grid;
 }
 /* backgrounds and colors */
-
 .main-container {
 	background: #325050 url(./parts/bamboo.png);
+	background-size: cover;
 }
+.header-container {
+	background: url(./parts/huntington.jpg);
+	background-size: cover;
+}
+.background-image-wrapper {
+	width: 100%;
+	height: 100%;
+	background-image:
+		url(./parts/contours-opaque.png),
+		url(./parts/gridlines-opaque.png);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+.title-container, .designs-link-container {
+	background: rgba(255, 255, 255, 0);
+}
+
+
+/* responsibility */
 @media only screen and (min-width: 1132px) {
 	/* main */
 	.main-container {
