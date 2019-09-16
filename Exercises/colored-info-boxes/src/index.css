@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App > div > * {
+  padding: 0 10px;
+}
+
+h1 {
+  text-align: center
+}
