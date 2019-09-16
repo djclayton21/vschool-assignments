@@ -1,12 +1,18 @@
 *, *:before, *:after {
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .Navbar {
-    font-size: 200px
-  }
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.App > * {
+  border: 2px solid black;
+}
