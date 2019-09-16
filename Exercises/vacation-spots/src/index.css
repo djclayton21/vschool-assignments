@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+h3 {
+  margin-block-start: 0;
+}
+.card {
+  border: 1px solid black;
+  margin: 5px 0;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
