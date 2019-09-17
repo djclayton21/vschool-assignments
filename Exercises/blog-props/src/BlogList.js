@@ -6,9 +6,9 @@ function BlogList(props){
 
 
     return (
-        <div className = 'BlogList'>
+        <div className = 'blog-list'>
             {posts}
-            <a href = '#top'>Older Posts -></a>
+            <a className = 'older-posts'href = '#top'>Older Posts &rarr;</a>
         </div>
     )
 }

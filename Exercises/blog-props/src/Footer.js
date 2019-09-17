@@ -3,13 +3,13 @@ import React from 'react'
 function Footer(){
 
     return (
-        <div className = 'Footer'>
+        <div className = 'footer'>
             <div className = 'social-links'>
-                <a href= '#top: '>Twitter</a>
-                <a href= '#top'>Facebook</a>
-                <a href= '#top'>Github</a>
+                <a href= '#top'><i className = 'fab fa-twitter fa-lg'></i></a>
+                <a href= '#top'><i className = 'fab fa-facebook fa-lg'></i></a>
+                <a href= '#top'><i className = 'fab fa-github fa-lg'></i></a>
             </div>
-            <div>Copyright &copy; Your Website 2019</div>
+            <div className = 'copyright'>Copyright &copy; Your Website 2019</div>
         </div>
     )
 }

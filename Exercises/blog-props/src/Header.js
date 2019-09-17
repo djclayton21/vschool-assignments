@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 
 function Header(){
     return (
-        <div className = 'Header'>
+        <div className = 'header'>
             <div className = 'header-overlay'></div>
             <Navbar />
             <div className = 'banner'>
