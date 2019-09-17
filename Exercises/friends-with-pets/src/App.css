@@ -1,0 +1,7 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+h3 {
+  display: inline-block;
+}
