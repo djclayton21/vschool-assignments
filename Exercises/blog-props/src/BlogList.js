@@ -8,6 +8,7 @@ function BlogList(props){
     return (
         <div className = 'BlogList'>
             {posts}
+            <a href = '#top'>Older Posts -></a>
         </div>
     )
 }
