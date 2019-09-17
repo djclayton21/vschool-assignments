@@ -2,14 +2,11 @@ import React from 'react'
 import Pet from './Pet'
 
 function Friend(props){
-    const pets = props.pets.map(pet => {
-        return(
-            <Pet {...pet} />
-        )
-    })
+    const pets = props.pets.map(pet => <Pet {...pet} key = {Math.random()} />)
     return(
-        <div className = {props.name}>
-            <h3>{props.name}</h3><span> Age: {props.age}</span>
+        <div className = 'friend-container'>
+            <h1>{props.name}</h1>
+            <p> Age: {props.age}</p>
             <div>
                 {pets}
             </div>

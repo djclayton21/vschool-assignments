@@ -2,9 +2,9 @@ import React from 'react'
 
 function Pet(props){
     return(
-        <div>
-            <span>Name: {props.name} </span>
-            <span>Breed: {props.breed}</span>
+        <div className = 'pet-container'>
+            <p>Name: {props.name} </p>
+            <p>Breed: {props.breed}</p>
         </div>
     )
 }
