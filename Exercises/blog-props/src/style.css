@@ -1,0 +1,26 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.App {
+    border: 2px solid black;
+}
+
+.Header { 
+    border: 2px solid black;
+}
+.Footer { 
+    border: 2px solid black;
+}
+.BlogList { 
+    border: 2px solid black;
+}
+
+
+.Navbar {
+    border: 2px solid blue;
+}
+.BlogPost {
+    border: 2px solid blue;
+}
+
