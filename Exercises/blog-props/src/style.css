@@ -1,19 +1,34 @@
 *, *:before, *:after {
     box-sizing: border-box;
 }
+body {
+    margin: 0;
+    padding: 0;
+}
 
 .App {
-    border: 2px solid black;
 }
 
-.Header { 
-    border: 2px solid black;
+.Header {
+    position: relative;
+    height:550px;
+    background:url(https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg);
+    background-size: cover;
+    background-position: center;
 }
+.header-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #212529;
+    opacity: .5;
+}
+
 .Footer { 
     border: 2px solid black;
 }
-.BlogList { 
-    border: 2px solid black;
+.BlogList {
+    background: white; 
 }
 
 

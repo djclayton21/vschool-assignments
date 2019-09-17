@@ -2,9 +2,9 @@ import React from 'react'
 import Navbar from './Navbar'
 
 function Header(){
-    
     return (
         <div className = 'Header'>
+            <div className = 'header-overlay'></div>
             <Navbar />
             <div className = 'banner'>
                 <h1>Clean Blog</h1>
