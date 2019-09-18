@@ -1,0 +1,34 @@
+.Square {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: all .1s linear;
+}
+
+.Square-container {
+    margin: auto;
+    width: fit-content;
+    left: 0;
+    right: 0;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.Control-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+.Control-button {
+    height: 75px;
+    width: 75px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: silver;
+    margin: 0px 25px;
+}
+.Control-button:hover {
+    background: lightgray;
+}
