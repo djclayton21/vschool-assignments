@@ -4,7 +4,10 @@ import SuperHero from './SuperHero.js'
 import './style.css'
 
 function App(){
-    const event = (catchPhrase) => window.alert(catchPhrase)
+
+    function event(catchPhrase){
+        window.alert(catchPhrase)
+    }
     const heros = data.map((hero, i) => {
     
         return (
