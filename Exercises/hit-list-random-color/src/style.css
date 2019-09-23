@@ -5,4 +5,50 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family:'Times New Roman', Times, serif;
+}
+body {
+    background: #FBE9E6
+}
+/* Colors and Fonts*/
+@font-face {
+    font-family: 'godfather';
+    src: url('./TheGodfather-v2.ttf') format('truetype')
+}
+/* 
+    linen: #FBE9E6
+    dark sienna: #411F14
+    pastel brown: #8D6A52
+    registration black: #010001
+    rocket mettalic: #897C77
+*/
+
+/* header */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #010001;
+    color: #FBE9E6;
+}
+
+.header h1 {
+    font-size:  72px;
+    font-family: 'godfather', 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+}
+
+
+/* list */
+.hit-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 80%;
+    margin: auto;
+}
+.hit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
