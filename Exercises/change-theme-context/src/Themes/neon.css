@@ -1,0 +1,24 @@
+.main-neon {
+    background-color: magenta;
+    color: yellow;
+}
+
+.navbar-neon {
+    background-color: purple;
+    color: yellow;
+
+}
+
+.footer-neon {
+    background-color: purple;
+    color: yellow;
+
+}
+
+.navbar-neon > .link:hover {
+    background-color: magenta;
+}
+
+.footer-neon > .link:hover {
+    background-color: magenta;
+}

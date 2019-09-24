@@ -1,8 +1,9 @@
 import React from 'react'
+import {withTheme} from '../context/ThemeProvider.js'
 
-function Footer(){
+function Footer(props){
     return (
-        <div className="footer">
+        <div className={`footer footer-${props.theme}`}>
             <div className="link">Name</div>
             <div className="link">Email</div>
             <div className="link">Address</div>
@@ -10,4 +11,4 @@ function Footer(){
     )
 }
 
-export default Footer
+export default withTheme(Footer)

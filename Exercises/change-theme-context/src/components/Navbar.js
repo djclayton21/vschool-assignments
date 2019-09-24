@@ -1,8 +1,9 @@
 import React from 'react'
+import {withTheme} from '../context/ThemeProvider.js'
 
-function Navbar(){
+function Navbar(props){
     return (
-        <div className="navbar">
+        <div className={`navbar navbar-${props.theme}`}>
             <div className="link">Home</div>
             <div className="link">About</div>
             <div className="link">Products</div>
@@ -10,4 +11,4 @@ function Navbar(){
     )
 }
 
-export default Navbar
+export default withTheme(Navbar)

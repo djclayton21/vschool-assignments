@@ -1,0 +1,19 @@
+.main-light {
+    background-color: peachpuff;
+}
+
+.navbar-light {
+    background-color: burlywood;
+}
+
+.footer-light {
+    background-color: burlywood;
+}
+
+.navbar-light > .link:hover {
+    background-color: peachpuff;
+}
+
+.footer-light > .link:hover {
+    background-color: peachpuff
+}

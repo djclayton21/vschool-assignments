@@ -4,7 +4,6 @@ import Footer from './Footer.js'
 import Main from './Main.js'
 
 
-
 function App(){
     return (
         <div className="app">
