@@ -12,7 +12,7 @@ function Main(props){
                     <option value="neon">Neon</option>
                 </select>
             <h1>Change Layout:</h1>
-            <select onChange = {props.changeTheme} >
+            <select >
                     <option value="split">Split</option>
                     <option value="top">Top</option>
                     <option value="bottom">Bottom</option>

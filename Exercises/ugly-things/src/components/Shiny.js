@@ -46,6 +46,8 @@ class Shiny extends Component {
                 <button onClick={() => this.props.deleteShinyThings(this.props._id)}>Delete</button>
                 <button onClick={() => {this.setState({isOpen: true})}}>Edit</button>
                 <dialog open = {this.state.isOpen}>
+
+                    //this could have been the same component used for post
                     <form method ='dialog' onSubmit= {(event) => this.editShinyThings(event, this.props._id)}>
                         <input 
                             name = "editTitle"

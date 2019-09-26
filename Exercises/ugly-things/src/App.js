@@ -51,6 +51,7 @@ class App extends Component {
     updateShinyThings = (toUpdate) => {
         this.setState(prevState => {
             console.log(prevState.shinyThings)
+
             const updatedThings = prevState.shinyThings.map(shiny => {
                 if (shiny._id === toUpdate._id) {
                     return toUpdate
@@ -58,7 +59,7 @@ class App extends Component {
                     return shiny
                 }
             })
-            console.log(updatedThings)
+        
             return {shinyThings: updatedThings}
         })
     }
