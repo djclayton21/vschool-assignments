@@ -1,11 +1,30 @@
 import React from 'react';
 import './style.css'
+import ProjectMap from './ProjectMap/ProjectMap';
+import ProjectFull from './ProjectFull/ProjectFull';
 
 const Projects = () => {
+    const projects = [
+        {
+            name: 'Project 1',
+            description: 'Its the first project'
+        },
+        {
+            name: 'Project 2',
+            description: 'Its the first project'
+        },
+        {
+            name: 'Project 3',
+            description: 'Its the first project'
+        }
+
+    ]
+    const fullProjects = projects.map(project => <ProjectFull {...project}/>)
     return (
-        <main className="projects">
-            Projects
-        </main>
+        <section className="projects" id="projects">
+            <ProjectMap projects= {projects}/>
+            {fullProjects}
+        </section>
     );
 }
  
