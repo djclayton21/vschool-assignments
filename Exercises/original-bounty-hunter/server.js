@@ -12,8 +12,8 @@ app.use(morgan('dev'));
 mongoose.connect('mongodb://localhost:27017/originalBountyHunter',
     {
         useNewUrlParser: true,
-        useFindAndModify: true,
-        useCreateIndex: false,
+        useFindAndModify: false,
+        useCreateIndex: true,
         useUnifiedTopology: true
     }
 )   .then(() => console.log('connected to database'))

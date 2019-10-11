@@ -13,7 +13,7 @@ class App extends Component {
     componentDidMount(){
         axios.get('/bounties')
             .then(res => {
-                console.log(res.data)
+                this.setState({bounties: res.data})
             })
             .catch(err => console.log(err))
     }
