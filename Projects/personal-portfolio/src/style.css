@@ -54,3 +54,12 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+.app {
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+.app > *{
+	border: 1px solid black;
+}
