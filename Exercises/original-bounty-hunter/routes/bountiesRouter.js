@@ -18,7 +18,7 @@ bountiesRouter.route('/')
             if (err) {
                 return res.status(500).send(`could not post: ${err}`)
             }
-            return res.status(200).send(newBounty)
+            return res.status(201).send(newBounty)
         })
     })
 
@@ -32,14 +32,14 @@ bountiesRouter.route('/:_id')
     .delete((req, res) => {
         Bounty.findByIdAndRemove(req.params._id, (err, bounty) => {
             if (err) return res.status(500).send(`could not delete ${err}`);
-            return res.status(200).send(`Deleted ${bounty.firstName} ${bounty.lastName}`);
+            return res.status(202).send(`Deleted ${bounty.firstName} ${bounty.lastName}`);
         })
     })
     .put((req, res) => {
         Bounty.findByIdAndUpdate(req.params._id, req.body, {new: true},
             (err, bounty) => {
                 if (err) return res.status(500).send(`could not update: ${err}`)
-                return res.status(200).send(bounty)
+                return res.status(201).send(bounty)
             })
     })
 
