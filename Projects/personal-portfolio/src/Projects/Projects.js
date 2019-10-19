@@ -22,7 +22,6 @@ const Projects = () => {
     const fullProjects = projects.map((project, i) => <ProjectFull {...project} key= {i}/>)
     return (
         <section className="projects" id="projects">
-            <ProjectMap projects= {projects}/>
             {fullProjects}
         </section>
     );

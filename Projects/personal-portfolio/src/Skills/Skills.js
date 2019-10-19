@@ -14,7 +14,7 @@ const Skills = () => {
                 </ul>
             </div>
             <div className="skills-other">
-                <ul>Soft Skills
+                <ul>Other Skills
                     <li>Soft Skill</li>
                     <li>Soft Skill</li>
                     <li>Soft Skill</li>
@@ -23,7 +23,7 @@ const Skills = () => {
                 </ul>
             </div>
             <div className="skills-working">
-                <ul>Working On
+                <ul>Future Interests
                     <li>Future Skill</li>
                     <li>Future Skill</li>
                     <li>Future Skill</li>

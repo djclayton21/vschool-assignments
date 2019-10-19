@@ -11,8 +11,6 @@ const Home = () => {
         <main className="home">
             <Intro />
             <Skills />
-            <ProfileLinks />
-            {/* <SectionLinks /> */}
             <Projects />
         </main>
     );
