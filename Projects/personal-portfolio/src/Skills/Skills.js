@@ -6,16 +6,18 @@ const Skills = () => {
             <div className="skills-languages">
                 <ul>Languages and Frameworks
                     <li>ES6 JavaScript</li>
-                    <li>HTML5</li>
+                    <li>React</li>
+                    <li>Node</li>
+                    <li>Express</li>
+                    <li>Mongoose</li>
+                    <li>HTLM/JSX</li>
                     <li>CSS</li>
-                    <li>CSS</li>
-                    <li>CSS</li>
-                    <li>CSS</li>
+                    <li>git/Github</li>
                 </ul>
             </div>
             <div className="skills-other">
                 <ul>Other Skills
-                    <li>Soft Skill</li>
+                    <li></li>
                     <li>Soft Skill</li>
                     <li>Soft Skill</li>
                     <li>Soft Skill</li>
