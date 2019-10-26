@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose')
+const expressJwt = require('express-jwt')
 const app = express();
 const morgan = require('morgan');
 require('dotenv').config()
@@ -20,13 +21,19 @@ mongoose.connect('mongodb://localhost:27017/firstauthdb',
 ,() => console.log('connected to DB'))
 
 //routes
+app.use('/api', expressJwt({secret: process.env.SECRET}));
 app.use('/auth', require('./routes/authRouter.js'));
+
+app.use('/api/photos', require('./routes/photoRouter.js'));
 
 //error handling
 app.use((err, req, res, next) => {
+    if (err.name === 'UnauthorizedError') {
+        res.status(err.status);
+    }
     console.log(err);
-    return res.send({errMsg: err.message})
+    return res.send({errMsg: err.message});
 }) 
 //listen
 
-app.listen(PORT, () => console.log(`server is running on port ${PORT}`))
+app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
