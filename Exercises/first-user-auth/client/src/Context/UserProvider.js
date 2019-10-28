@@ -35,7 +35,10 @@ const UserProvider = (props) => {
         console.log('logged out')
         localStorage.removeItem('user')
         localStorage.removeItem('token')
-        setUserState(initUser)
+        setUserState({
+            user: {},
+            token: ""
+        })
     }
 
     return (
