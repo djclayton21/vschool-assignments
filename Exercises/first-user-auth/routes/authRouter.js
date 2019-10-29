@@ -10,7 +10,7 @@ authRouter.post('/signup', (req, res, next) => {
             return next(err)
         }
 
-        if (existingUser !== null) {
+        if (existingUser) {
             res.status(400)
             return next(new Error('Username already exists'))
         }
@@ -21,8 +21,8 @@ authRouter.post('/signup', (req, res, next) => {
                 res.status(500);
                 return next(err)
             }
-            const token = jwt.sign(createdUser.toObject(), process.env.SECRET)
-            return res.status(201).send({user: createdUser.toObject(), token})
+            const token = jwt.sign(createdUser.withoutPassword(), process.env.SECRET)
+            return res.status(201).send({user: createdUser.withoutPassword(), token})
         })
     })
 })
@@ -33,13 +33,20 @@ authRouter.post('/login', (req, res, next) => {
             res.status(500);
             return next(err)
         }
-        if (!matchedUser || matchedUser.password !== req.body.password) {
+        if (!matchedUser) {
             res.status(401);
             return next(new Error('Login info not found'));
         }
+        matchedUser.checkPassword(req.body.password, (err, match) => {
+            if (err) return next(new Error('Login info not found'));
+            if (!match) {
+                res.status(401);
+                return next(new Error('Login info not found'))
+            }
+            const token = jwt.sign(matchedUser.withoutPassword(), process.env.SECRET)
+            return res.status(201).send({user: matchedUser.withoutPassword(), token})
+        })
 
-        const token = jwt.sign(matchedUser.toObject(), process.env.SECRET)
-        return res.status(201).send({user: matchedUser, token})
     })
 })
 

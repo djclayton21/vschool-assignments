@@ -18,7 +18,7 @@ const UserProvider = (props) => {
                 localStorage.setItem('token', token)
                 setUserState({user: user, token: token})
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err.response.data.errMsg))
     }
     const login = (credentials) => {
         axios.post('/auth/login', credentials)

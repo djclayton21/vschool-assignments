@@ -31,7 +31,7 @@ app.use((err, req, res, next) => {
     if (err.name === 'UnauthorizedError') {
         res.status(err.status);
     }
-    console.log(err);
+    console.error(err)
     return res.send({errMsg: err.message});
 }) 
 //listen
