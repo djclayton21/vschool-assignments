@@ -9,7 +9,7 @@ const Navbar = () => {
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
             {/* dropdown */}
-            <a href="https://www.linkedin.com/in/djclayton21/" target="_blank" rel="noopener noreferrer" >LinkedIn</a>
+            <a href="https://www.linkedin.com/djclayton21/" target="_blank" rel="noopener noreferrer" >LinkedIn</a>
             <a href="https://github.com/djclayton21" target="_blank" rel="noopener noreferrer" >Github</a>
             <Link to='/resume' >Resume</Link>
         </header>
